@@ -3,6 +3,8 @@ import 'login_page.dart';
 import 'register_page.dart';
 
 class AuthPage extends StatelessWidget {
+  const AuthPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,17 +41,30 @@ class AuthPage extends StatelessWidget {
               children: [
                 Text(
                   "Selamat Datang",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    fontSize: 24, 
+                    fontWeight: FontWeight.bold,
+                    color: Colors.green[800],
+                  ),
                 ),
                 SizedBox(height: 10),
-                Text("Mulai gunakan aplikasi"),
-
-                SizedBox(height: 20),
-
+                Text(
+                  "Mulai gunakan aplikasi",
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.grey[600],
+                  ),
+                ),
+                SizedBox(height: 30),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.green,
-                    minimumSize: Size(double.infinity, 50),
+                    foregroundColor: Colors.white,
+                    minimumSize: Size(double.infinity, 55),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    elevation: 2,
                   ),
                   onPressed: () {
                     Navigator.push(
@@ -57,15 +72,17 @@ class AuthPage extends StatelessWidget {
                       MaterialPageRoute(builder: (_) => LoginPage()),
                     );
                   },
-                  child: Text("Masuk"),
+                  child: Text("Masuk", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                 ),
-
-                SizedBox(height: 10),
-
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.grey[300],
-                    minimumSize: Size(double.infinity, 50),
+                SizedBox(height: 15),
+                OutlinedButton(
+                  style: OutlinedButton.styleFrom(
+                    foregroundColor: Colors.green,
+                    side: BorderSide(color: Colors.green, width: 2),
+                    minimumSize: Size(double.infinity, 55),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
                   ),
                   onPressed: () {
                     Navigator.push(
@@ -73,7 +90,7 @@ class AuthPage extends StatelessWidget {
                       MaterialPageRoute(builder: (_) => RegisterPage()),
                     );
                   },
-                  child: Text("Daftar", style: TextStyle(color: Colors.black)),
+                  child: Text("Daftar", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                 ),
               ],
             ),
